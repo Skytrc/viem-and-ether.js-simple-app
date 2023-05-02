@@ -1,6 +1,6 @@
 import { ethers } from "ethers";
 import { useState } from "react";
-import { PublicClient, createPublicClient, http } from "viem";
+import { createPublicClient, http } from "viem";
 import { mainnet } from "viem/chains";
 
 // Use ethers default provider to connect to the Ethereum network

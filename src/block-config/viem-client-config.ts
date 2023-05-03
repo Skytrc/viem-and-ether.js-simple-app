@@ -3,9 +3,9 @@ import { privateKeyToAccount } from "viem/accounts";
 import { mainnet, sepolia } from "viem/chains";
 
 // DON'T UPDATE ANY SENSITIVE PARAMETERS IN GITHUB OR PUBLIC WEBSITE
-const PRIVATE_KEY = privateKeyToAccount(import.meta.env.VITE_PRIVATE_KEY);
+const PRIVATE_KEY = privateKeyToAccount(`0x${import.meta.env.VITE_PRIVATE_KEY}`);
 
-const publicClient = createPublicClient({
+export const publicClient = createPublicClient({
     batch: {
         multicall: true
     },
@@ -13,7 +13,7 @@ const publicClient = createPublicClient({
     transport: http()
 });
 
-const testClient = createPublicClient({
+export const testClient = createPublicClient({
     batch: {
         multicall: true
     },
@@ -21,7 +21,7 @@ const testClient = createPublicClient({
     transport: http()
 });
 
-const localWallet = createWalletClient({
+export const localWallet = createWalletClient({
     account: PRIVATE_KEY,
     chain: sepolia,
     transport: http(),
